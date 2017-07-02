@@ -35,7 +35,7 @@ public class CatalunyaMedievalSimpleTest extends TestConfiguration {
 	/**
 	 * Test .cat
 	 */
-	@Test(enabled = false)
+	@Test
 	public void openWebCAT() {
 		home.go(HTTP_WWW_CATALUNYAMEDIEVAL_CAT);
 		Assert.assertTrue(home.validatePageLoad(),

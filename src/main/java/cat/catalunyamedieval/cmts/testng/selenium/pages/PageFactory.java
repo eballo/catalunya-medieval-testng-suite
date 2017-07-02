@@ -24,4 +24,8 @@ public class PageFactory {
 		return new AdvancedSearchPage(driverProvider);
 	}
 
+	public WebDriver getDriverProvider() {
+		return driverProvider;
+	}
+
 }
