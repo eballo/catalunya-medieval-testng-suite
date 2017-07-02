@@ -6,11 +6,10 @@ import org.testng.annotations.Test;
 
 import cat.catalunyamedieval.cmts.testng.configuration.TestConfiguration;
 
-
 /**
  * Unit test for simple App.
  */
-public class CatalunyaMedievalSimpleTest extends TestConfiguration{
+public class CatalunyaMedievalSimpleTest extends TestConfiguration {
 
 	private static final String HTTP_WWW_CATALUNYAMEDIEVAL_ES = "http://www.catalunyamedieval.es";
 	private static final String HTTP_WWW_CATALUNYAMEDIEVAL_CAT = "http://www.catalunyamedieval.cat";
@@ -22,46 +21,50 @@ public class CatalunyaMedievalSimpleTest extends TestConfiguration{
 	 */
 	@Test
 	public void openWebES() {
-		
+
 		home.go(HTTP_WWW_CATALUNYAMEDIEVAL_ES);
 		String actualTitle = home.getTitle();
-		String expectedTitle = "Catalunya Medieval | Castells, Torres, Fortificacions i altres construccions"; 
-		
+		String expectedTitle = "Catalunya Medieval | Castells, Torres, Fortificacions i altres construccions";
+
 		Assert.assertEquals(actualTitle, expectedTitle, "Titles differs");
-		Assert.assertTrue( home.validatePageLoad(), "Validation Failed - catalunya medieval text does not exist in "+HTTP_WWW_CATALUNYAMEDIEVAL_ES);
-		
+		Assert.assertTrue(home.validatePageLoad(),
+				"Validation Failed - catalunya medieval text does not exist in " + HTTP_WWW_CATALUNYAMEDIEVAL_ES);
+
 	}
-	
+
 	/**
 	 * Test .cat
 	 */
-	@Test
+	@Test(enabled = false)
 	public void openWebCAT() {
 		home.go(HTTP_WWW_CATALUNYAMEDIEVAL_CAT);
-		Assert.assertTrue( home.validatePageLoad(), "Validation Failed - catalunya medieval text does not exist in "+HTTP_WWW_CATALUNYAMEDIEVAL_CAT);
+		Assert.assertTrue(home.validatePageLoad(),
+				"Validation Failed - catalunya medieval text does not exist in " + HTTP_WWW_CATALUNYAMEDIEVAL_CAT);
 	}
-	
+
 	/**
 	 * Test .net
 	 */
-	@Test
+	@Test(enabled = false)
 	public void openWebNET() {
 		home.go(HTTP_WWW_CATALUNYAMEDIEVAL_NET);
-		Assert.assertTrue( home.validatePageLoad(), "Validation Failed - catalunya medieval text does not exist in "+HTTP_WWW_CATALUNYAMEDIEVAL_NET);
+		Assert.assertTrue(home.validatePageLoad(),
+				"Validation Failed - catalunya medieval text does not exist in " + HTTP_WWW_CATALUNYAMEDIEVAL_NET);
 	}
-	
+
 	/**
 	 * Test .com
 	 */
-	@Test
+	@Test(enabled = false)
 	public void openWebCOM() {
 		home.go(HTTP_WWW_CATALUNYAMEDIEVAL_COM);
-		Assert.assertTrue( home.validatePageLoad(), "Validation Failed - catalunya medieval text does not exist in "+HTTP_WWW_CATALUNYAMEDIEVAL_COM);
+		Assert.assertTrue(home.validatePageLoad(),
+				"Validation Failed - catalunya medieval text does not exist in " + HTTP_WWW_CATALUNYAMEDIEVAL_COM);
 	}
-	
+
 	@AfterClass
-	public void closeBrowser(){
+	public void closeBrowser() {
 		home.close();
 	}
-	
+
 }
