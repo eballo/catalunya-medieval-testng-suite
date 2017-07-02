@@ -2,6 +2,7 @@ package cat.catalunyamedieval.cmts.testng.configuration;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 
 import cat.catalunyamedieval.cmts.testng.selenium.pages.AdvancedSearchPage;
 import cat.catalunyamedieval.cmts.testng.selenium.pages.HomePage;
@@ -20,7 +21,7 @@ public class TestConfiguration {
 	
 
 	public TestConfiguration(){
-		WebDriver driverProvider = new ChromeDriver();
+		WebDriver driverProvider = new FirefoxDriver();
 		pageFactory = new PageFactory(driverProvider);
 		
 		home = pageFactory.newHome();
