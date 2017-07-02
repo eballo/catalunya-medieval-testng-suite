@@ -54,6 +54,6 @@ public class AbstractPage extends FluentWebDriver {
 	}
 	
 	public void close(){
-		webDriver.close();
+		webDriver.quit();
 	}
 }
