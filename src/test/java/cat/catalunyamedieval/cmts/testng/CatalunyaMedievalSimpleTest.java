@@ -1,7 +1,7 @@
 package cat.catalunyamedieval.cmts.testng;
 
 import org.testng.Assert;
-import org.testng.annotations.AfterTest;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.Test;
 
 import cat.catalunyamedieval.cmts.testng.configuration.TestConfiguration;
@@ -59,7 +59,7 @@ public class CatalunyaMedievalSimpleTest extends TestConfiguration{
 		Assert.assertTrue( home.validatePageLoad(), "Validation Failed - catalunya medieval text does not exist in "+HTTP_WWW_CATALUNYAMEDIEVAL_COM);
 	}
 	
-	@AfterTest
+	@AfterClass
 	public void closeBrowser(){
 		home.close();
 	}
