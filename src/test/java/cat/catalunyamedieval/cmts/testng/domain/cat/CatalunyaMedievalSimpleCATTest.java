@@ -18,7 +18,7 @@ public class CatalunyaMedievalSimpleCATTest extends TestConfiguration {
 
 		home.go(HTTP_WWW_CATALUNYAMEDIEVAL_CAT);
 		String actualTitle = home.getTitle();
-		String expectedTitle = "Catalunya Medieval | Castells, Torres, Fortificacions i altres construccions2";
+		String expectedTitle = "Catalunya Medieval | Castells, Torres, Fortificacions i altres construccions";
 
 		Assert.assertEquals(actualTitle, expectedTitle, "Titles differs");
 		Assert.assertTrue(home.validatePageLoad(),
