@@ -8,7 +8,6 @@ import java.util.List;
 import org.openqa.selenium.WebDriver;
 import org.seleniumhq.selenium.fluent.FluentWebDriver;
 
-
 /**
  * 
  * Abstract Page
@@ -27,6 +26,10 @@ public class AbstractPage extends FluentWebDriver {
 		this.webDriver = webDriver;
 	}
 
+	public void go(final String url) {
+		get(url);
+	}
+
 	public void found(String text) {
 		// textIsVisible(text);
 	}
@@ -40,20 +43,24 @@ public class AbstractPage extends FluentWebDriver {
 	public void notFound(String text) {
 		// textIsNotVisible(text);
 	}
-	
-	public void get(String url){
+
+	public void get(String url) {
 		webDriver.get(url);
 	}
+	
+	public WebDriver getDriver(){
+		return webDriver;
+	}
 
-	public String getPageSource(){
+	public String getPageSource() {
 		return webDriver.getPageSource();
 	}
-	
-	public String getTitle(){
+
+	public String getTitle() {
 		return webDriver.getTitle();
 	}
-	
-	public void close(){
+
+	public void close() {
 		webDriver.quit();
 	}
 }

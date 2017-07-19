@@ -16,10 +16,6 @@ public class HomePage extends AbstractPage {
 		super(driverProvider);
 	}
 
-	public void go(final String url) {
-		get(url);
-	}
-
 	public boolean validatePageLoad() {
 		return getPageSource().contains(CATALUNYA_MEDIEVAL);
 	}
