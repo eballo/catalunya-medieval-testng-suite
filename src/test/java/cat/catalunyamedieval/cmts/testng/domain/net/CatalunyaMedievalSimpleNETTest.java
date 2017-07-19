@@ -6,7 +6,7 @@ import org.testng.annotations.Test;
 import cat.catalunyamedieval.cmts.testng.configuration.TestConfiguration;
 
 /**
- * Unit test for simple App.
+ * Unit test for domain .net
  */
 public class CatalunyaMedievalSimpleNETTest extends TestConfiguration {
 

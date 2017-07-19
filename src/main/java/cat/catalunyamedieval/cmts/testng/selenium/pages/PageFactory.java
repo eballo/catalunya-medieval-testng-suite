@@ -19,6 +19,10 @@ public class PageFactory {
 	public HomePage newHome() {
 		return new HomePage(driverProvider);
 	}
+	
+	public ListPage newList() {
+		return new ListPage(driverProvider);
+	}
 
 	public AdvancedSearchPage newAdvancedSearch() {
 		return new AdvancedSearchPage(driverProvider);

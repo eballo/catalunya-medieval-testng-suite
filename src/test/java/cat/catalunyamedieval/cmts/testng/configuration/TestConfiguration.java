@@ -3,6 +3,7 @@ package cat.catalunyamedieval.cmts.testng.configuration;
 import java.io.File;
 import java.io.IOException;
 import java.util.Arrays;
+import java.util.concurrent.TimeUnit;
 
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
@@ -16,6 +17,7 @@ import org.testng.annotations.BeforeClass;
 
 import cat.catalunyamedieval.cmts.testng.selenium.pages.AdvancedSearchPage;
 import cat.catalunyamedieval.cmts.testng.selenium.pages.HomePage;
+import cat.catalunyamedieval.cmts.testng.selenium.pages.ListPage;
 import cat.catalunyamedieval.cmts.testng.selenium.pages.PageFactory;
 
 /**
@@ -33,18 +35,23 @@ public class TestConfiguration {
 	private PageFactory pageFactory;
 	
 	public HomePage home;
+	public ListPage list;
 	public AdvancedSearchPage advancedSearch;
 	
-	@BeforeClass
+	@BeforeClass(alwaysRun = true)
 	public void beforeSuiteConfiguration(){
+		
 		WebDriver driverProvider = new FirefoxDriver();
+		//driverProvider.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		
 		pageFactory = new PageFactory(driverProvider);
 		
 		home = pageFactory.newHome();
+		list = pageFactory.newList();
 		advancedSearch = pageFactory.newAdvancedSearch();
 	}
 	
-	@AfterClass
+	@AfterClass(alwaysRun = true)
 	public void afterTestCloseSession(){
 		pageFactory.getDriverProvider().quit();
 	}
