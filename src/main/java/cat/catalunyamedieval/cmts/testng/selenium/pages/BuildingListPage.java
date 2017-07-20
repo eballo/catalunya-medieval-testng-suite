@@ -13,8 +13,8 @@ import org.openqa.selenium.WebDriver;
  */
 public class BuildingListPage extends AbstractPage {
 
-	public BuildingListPage(WebDriver driverProvider) {
-		super(driverProvider);
+	public BuildingListPage(WebDriver driverProvider, String url) {
+		super(driverProvider, url);
 	}
 
 }

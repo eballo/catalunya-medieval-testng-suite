@@ -20,14 +20,21 @@ public class AbstractPage extends FluentWebDriver {
 	/** Identifier for PageLoad. */
 	public static final String WAIT_FOR_PAGE_TO_LOAD_INTERVAL_MSEC = "120000";
 	private WebDriver webDriver;
+	private String url;
 
-	public AbstractPage(WebDriver webDriver) {
+	public AbstractPage(WebDriver webDriver, String url) {
 		super(webDriver);
 		this.webDriver = webDriver;
+		this.url = url;
 	}
 
-	public void go(final String url) {
-		get(url);
+	/**
+	 * domain + urlSufix
+	 * 
+	 * @param urlSufix
+	 */
+	public void goTo(final String urlSufix) {
+		webDriver.get(url + urlSufix);
 	}
 
 	public void found(String text) {
@@ -42,10 +49,6 @@ public class AbstractPage extends FluentWebDriver {
 
 	public void notFound(String text) {
 		// textIsNotVisible(text);
-	}
-
-	public void get(String url) {
-		webDriver.get(url);
 	}
 	
 	public WebDriver getDriver(){
