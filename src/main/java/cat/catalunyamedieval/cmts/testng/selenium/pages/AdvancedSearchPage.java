@@ -15,16 +15,19 @@ import org.openqa.selenium.WebDriver;
  */
 public class AdvancedSearchPage extends AbstractPage {
 
-	private static final String ADVANCED_SEARCH_URL = "http://www.catalunyamedieval.es/cerca/";
+	private static final String ADVANCED_SEARCH_URL = "/cerca/";
 	private static final String NAME_KEYWORDSEARCH = "s";
 	private static final String SEARCH_BUTTON = "searchsubmit_2";
 
-	public AdvancedSearchPage(WebDriver driverProvider) {
-		super(driverProvider);
+	public AdvancedSearchPage(WebDriver driverProvider, String url) {
+		super(driverProvider, url);
 	}
 
-	public void go() {
-		get(ADVANCED_SEARCH_URL);
+	/**
+	 * domain + /cerca/
+	 */
+	public void goToAdvancedSearchPage() {
+		goTo(ADVANCED_SEARCH_URL);
 	}
 
 	public void fillText(final String text) {

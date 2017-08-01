@@ -1,6 +1,7 @@
-package cat.catalunyamedieval.cmts.testng.domain.cat;
+package cat.catalunyamedieval.cmts.testng.domain;
 
 import org.testng.Assert;
+import org.testng.annotations.Factory;
 import org.testng.annotations.Test;
 
 import cat.catalunyamedieval.cmts.testng.configuration.TestConfiguration;
@@ -8,21 +9,26 @@ import cat.catalunyamedieval.cmts.testng.configuration.TestConfiguration;
 /**
  * Unit test for simple App.
  */
-public class CatalunyaMedievalSimpleCATTest extends TestConfiguration {
+public class CatalunyaMedievalSimpleTest extends TestConfiguration {
+	
+	@Factory(dataProvider = "domain")
+	public CatalunyaMedievalSimpleTest(String url) {
+		this.url = url;
+	}
 
 	/**
-	 * Test .cat
+	 * Test .es
 	 */
 	@Test
-	public void openWebCAT() {
+	public void openWebES() {
 
-		home.go(HTTP_WWW_CATALUNYAMEDIEVAL_CAT);
+		home.goToHomePage();
 		String actualTitle = home.getTitle();
 		String expectedTitle = "Catalunya Medieval | Castells, Torres, Fortificacions i altres construccions";
 
 		Assert.assertEquals(actualTitle, expectedTitle, "Titles differs");
 		Assert.assertTrue(home.validatePageLoad(),
-				"Validation Failed - catalunya medieval text does not exist in " + HTTP_WWW_CATALUNYAMEDIEVAL_CAT);
+				"Validation Failed - catalunya medieval text does not exist in " + HTTP_WWW_CATALUNYAMEDIEVAL_ES);
 
 	}
 

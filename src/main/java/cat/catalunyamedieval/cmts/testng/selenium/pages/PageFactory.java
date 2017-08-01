@@ -11,25 +11,31 @@ import org.openqa.selenium.WebDriver;
 public class PageFactory {
 
 	private final WebDriver driverProvider;
+	private final String url;
 
-	public PageFactory(WebDriver driverProvider) {
+	public PageFactory(WebDriver driverProvider, String url) {
 		this.driverProvider = driverProvider;
+		this.url = url;
 	}
 
 	public HomePage newHome() {
-		return new HomePage(driverProvider);
+		return new HomePage(driverProvider, url);
 	}
 	
 	public ListPage newList() {
-		return new ListPage(driverProvider);
+		return new ListPage(driverProvider, url);
 	}
 
 	public AdvancedSearchPage newAdvancedSearch() {
-		return new AdvancedSearchPage(driverProvider);
+		return new AdvancedSearchPage(driverProvider, url);
 	}
 
 	public WebDriver getDriverProvider() {
 		return driverProvider;
+	}
+	
+	public String getbaseUrl(){
+		return this.url;
 	}
 
 }

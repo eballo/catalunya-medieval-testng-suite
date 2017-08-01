@@ -13,8 +13,8 @@ import org.openqa.selenium.WebDriver;
  */
 public class HistoryPage extends AbstractPage {
 
-	public HistoryPage(WebDriver driverProvider) {
-		super(driverProvider);
+	public HistoryPage(WebDriver driverProvider, String url) {
+		super(driverProvider, url);
 	}
 
 }

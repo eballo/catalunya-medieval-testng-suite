@@ -12,10 +12,17 @@ public class HomePage extends AbstractPage {
 
 	public static final String CATALUNYA_MEDIEVAL = "Catalunya Medieval";
 
-	public HomePage(WebDriver driverProvider) {
-		super(driverProvider);
+	public HomePage(WebDriver driverProvider, String url) {
+		super(driverProvider, url);
+	}
+	
+	public void goToHomePage() {
+		goTo("/");
 	}
 
+	/**
+	 * @return true if contains Catalunya Medieval
+	 */
 	public boolean validatePageLoad() {
 		return getPageSource().contains(CATALUNYA_MEDIEVAL);
 	}
